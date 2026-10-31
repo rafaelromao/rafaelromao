@@ -45,6 +45,30 @@ $ sandman run 42 43 44 45
   </tr>
 </table>
 
+### [zmk-vim-mode](https://rafaelromao.github.io/zmk-vim-mode/)
+
+**The keyboard should be in NORMAL when the editor is.** zmk-vim-mode keeps a ZMK keyboard's layers in sync with the editor's real Vim state: NORMAL in normal mode, INSERT while typing, and out of Vim layers entirely when keys must pass through untouched.
+
+That needs the host to tell the keyboard something, and HID runs keyboard to host. Except for one byte: the output report the host sends to light Caps Lock and Num Lock. Three of its bits, Scroll Lock, Compose and Kana, are never set by any operating system, so together they make a silent 3-bit channel, eight states, more than Vim has modes. It works the same over USB and Bluetooth, with no pairing and no custom transport. A 60 ms hold-off and a 150 ms guard keep a stale host message from undoing a correct local one: the keyboard wins in motion, the host wins at rest.
+
+<p align="center">
+  <a href="https://rafaelromao.github.io/zmk-vim-mode/">
+    <img src="https://github.com/rafaelromao/zmk-vim-mode/raw/HEAD/docs/img/showcase-hero.png" alt="Neovim in normal mode with the keyboard on its VIM NORMAL layer" width="100%">
+  </a>
+</p>
+
+### [zmk-layer-hud](https://rafaelromao.github.io/zmk-layer-hud/)
+
+**Ask the keyboard, not the operating system.** An on-screen HUD that shows the layer you are on and lights the keys, combos and macros as you press them, drawn from the same keymap the firmware is built from. It is for learning a layout, and for recording or sharing a screen while you type on one.
+
+Overlays like this usually infer the key from an OS event tap. This one infers nothing: a small ZMK module reports the keyboard's own active layers and the position of every press, over Bluetooth or a serial interface of its own on USB, so the HUD shows what the firmware did rather than what the host saw. It runs as a native overlay panel on macOS and a layer-shell panel on Hyprland, and redraws live when the keymap changes.
+
+<p align="center">
+  <a href="https://rafaelromao.github.io/zmk-layer-hud/">
+    <img src="https://github.com/rafaelromao/zmk-layer-hud/raw/HEAD/docs/hud.gif" alt="The HUD lighting keys on the Alpha 1 layer as they are pressed" width="80%">
+  </a>
+</p>
+
 ### [LayerBench](https://rafaelromao.github.io/layerbench/)
 
 **A layout analyzer that types the way the keyboard does.** Layout analyzers score a grid of letters. A ZMK keymap is not a grid of letters: it has one-shot and momentary layers, combos, adaptive and repeat keys, sticky shift and caps word, and each of them changes which physical keys a word actually costs. LayerBench simulates how a corpus is typed on the real keymap, then computes same-finger bigrams, scissors, rolls, redirects and effort on the resulting physical key stream. It runs entirely in the browser.
@@ -55,18 +79,6 @@ $ sandman run 42 43 44 45
       <source media="(prefers-color-scheme: dark)" srcset="https://github.com/rafaelromao/layerbench/raw/HEAD/docs/site/assets/img/analyze-board-dark.png">
       <img src="https://github.com/rafaelromao/layerbench/raw/HEAD/docs/site/assets/img/analyze-board-light.png" alt="LayerBench heatmap of a keymap layer" width="80%">
     </picture>
-  </a>
-</p>
-
-### [zmk-vim-mode](https://rafaelromao.github.io/zmk-vim-mode/) and [zmk-layer-hud](https://rafaelromao.github.io/zmk-layer-hud/)
-
-**The keyboard should be in NORMAL when the editor is.** zmk-vim-mode keeps the keyboard's layers in sync with the editor's real Vim state. HID runs keyboard to host, so there is no standard way back, except one: the single LED byte the host sends to light Caps Lock. Three of its bits are never set by any operating system, which makes a silent 3-bit channel, eight states, more than Vim has modes. It works over USB and Bluetooth with no pairing.
-
-**Ask the keyboard, not the operating system.** zmk-layer-hud is the on-screen overlay on the right: it shows the active layer and lights keys, combos and macros as you press them. A small ZMK module reports the keyboard's own layers and key positions, so it shows what the firmware did rather than what the host guessed. Native on macOS and Hyprland.
-
-<p align="center">
-  <a href="https://rafaelromao.github.io/zmk-vim-mode/">
-    <img src="https://github.com/rafaelromao/zmk-vim-mode/raw/HEAD/docs/img/showcase-hero.png" alt="Neovim in normal mode with the HUD showing the VIM NORMAL layer" width="100%">
   </a>
 </p>
 
