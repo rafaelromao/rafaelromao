@@ -45,6 +45,19 @@ $ sandman run 42 43 44 45
   </tr>
 </table>
 
+### [LayerBench](https://rafaelromao.github.io/layerbench/)
+
+**A layout analyzer that types the way the keyboard does.** Layout analyzers score a grid of letters. A ZMK keymap is not a grid of letters: it has one-shot and momentary layers, combos, adaptive and repeat keys, sticky shift and caps word, and each of them changes which physical keys a word actually costs. LayerBench simulates how a corpus is typed on the real keymap, then computes same-finger bigrams, scissors, rolls, redirects and effort on the resulting physical key stream. It runs entirely in the browser.
+
+<p align="center">
+  <a href="https://rafaelromao.github.io/layerbench/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/rafaelromao/layerbench/raw/HEAD/docs/site/assets/img/analyze-board-dark.png">
+      <img src="https://github.com/rafaelromao/layerbench/raw/HEAD/docs/site/assets/img/analyze-board-light.png" alt="LayerBench heatmap of a keymap layer" width="80%">
+    </picture>
+  </a>
+</p>
+
 ### [zmk-vim-mode](https://rafaelromao.github.io/zmk-vim-mode/)
 
 **The keyboard should be in NORMAL when the editor is.** zmk-vim-mode keeps a ZMK keyboard's layers in sync with the editor's real Vim state: NORMAL in normal mode, INSERT while typing, and out of Vim layers entirely when keys must pass through untouched.
@@ -66,19 +79,6 @@ Overlays like this usually infer the key from an OS event tap. This one infers n
 <p align="center">
   <a href="https://rafaelromao.github.io/zmk-layer-hud/">
     <img src="https://github.com/rafaelromao/zmk-layer-hud/raw/HEAD/docs/hud.gif" alt="The HUD lighting keys on the Alpha 1 layer as they are pressed" width="80%">
-  </a>
-</p>
-
-### [LayerBench](https://rafaelromao.github.io/layerbench/)
-
-**A layout analyzer that types the way the keyboard does.** Layout analyzers score a grid of letters. A ZMK keymap is not a grid of letters: it has one-shot and momentary layers, combos, adaptive and repeat keys, sticky shift and caps word, and each of them changes which physical keys a word actually costs. LayerBench simulates how a corpus is typed on the real keymap, then computes same-finger bigrams, scissors, rolls, redirects and effort on the resulting physical key stream. It runs entirely in the browser.
-
-<p align="center">
-  <a href="https://rafaelromao.github.io/layerbench/">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/rafaelromao/layerbench/raw/HEAD/docs/site/assets/img/analyze-board-dark.png">
-      <img src="https://github.com/rafaelromao/layerbench/raw/HEAD/docs/site/assets/img/analyze-board-light.png" alt="LayerBench heatmap of a keymap layer" width="80%">
-    </picture>
   </a>
 </p>
 
